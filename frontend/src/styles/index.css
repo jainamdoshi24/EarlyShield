@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Light Theme */
+    --bg-primary: #f5f7fa;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f0f4f8;
+    --bg-input: #f5f7fa;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-accent: rgba(0, 0, 0, 0.12);
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-muted: #a0aec0;
+
+    /* Barclays-style light blue */
+    --barclays-blue: #00aeef;
+    --barclays-blue-light: #f0f9ff;
+    --navbar-bg: #f0f9ff;
+
+    /* Accent colors — vibrant */
+    --accent-blue: #0078d4;
+    --accent-indigo: #6366f1;
+    --accent-green: #16a34a;
+    --accent-yellow: #eab308;
+    --accent-orange: #f97316;
+    --accent-red: #ef4444;
+    --accent-teal: #0891b2;
+    --accent-purple: #8b5cf6;
+
+    /* Chart palette */
+    --chart-stress: #ef4444;
+    --chart-elasticity: #16a34a;
+    --chart-trajectory: #0891b2;
+    --chart-salary: #f97316;
+    --chart-savings: #14b8a6;
+    --chart-upi: #8b5cf6;
+    --chart-discretionary: #eab308;
+    --chart-atm: #e11d48;
+
+    --gradient-primary: linear-gradient(135deg, #00aeef, #0078d4);
+    --gradient-danger: linear-gradient(135deg, #ef4444, #f97316);
+    --gradient-success: linear-gradient(135deg, #16a34a, #14b8a6);
+
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-navbar: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+    --radius-sm: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========== MUI OVERRIDES ========== */
+
+.MuiAppBar-root {
+    background: var(--navbar-bg) !important;
+    border-bottom: none !important;
+    box-shadow: var(--shadow-navbar) !important;
+}
+
+.MuiPaper-root {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius) !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.MuiPaper-root:hover {
+    box-shadow: var(--shadow-hover) !important;
+}
+
+.MuiCard-root {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius) !important;
+}
+
+.MuiCardContent-root {
+    padding: 20px !important;
+}
+
+/* Table */
+.MuiTableContainer-root {
+    border-radius: var(--radius) !important;
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+    background: #f0f4f8 !important;
+    color: var(--text-secondary) !important;
+    font-weight: 600 !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--border-accent) !important;
+    padding: 14px 16px !important;
+}
+
+.MuiTableBody-root .MuiTableCell-root {
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 12px 16px !important;
+    font-size: 0.88rem !important;
+}
+
+.MuiTableRow-root:hover {
+    background-color: #f7fafc !important;
+}
+
+/* Inputs & Selects */
+.MuiInputLabel-root {
+    color: var(--text-secondary) !important;
+}
+
+.MuiInputLabel-root.Mui-focused {
+    color: var(--accent-blue) !important;
+}
+
+.MuiOutlinedInput-root {
+    color: var(--text-primary) !important;
+    background: var(--bg-secondary) !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+    border-color: var(--border-accent) !important;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: var(--accent-blue) !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--accent-blue) !important;
+}
+
+.MuiSelect-icon {
+    color: var(--text-secondary) !important;
+}
+
+.MuiMenuItem-root {
+    color: var(--text-primary) !important;
+}
+
+/* Buttons */
+.MuiButton-contained {
+    background: var(--gradient-primary) !important;
+    border-radius: var(--radius-sm) !important;
+    text-transform: none !important;
+    font-weight: 600 !important;
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(0, 120, 212, 0.25) !important;
+    transition: all 0.2s ease !important;
+}
+
+.MuiButton-contained:hover {
+    box-shadow: 0 4px 14px rgba(0, 120, 212, 0.35) !important;
+    transform: translateY(-1px);
+}
+
+.MuiButton-text {
+    color: var(--text-secondary) !important;
+    text-transform: none !important;
+}
+
+.MuiButton-text:hover {
+    color: var(--text-primary) !important;
+    background: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Chips */
+.MuiChip-root {
+    font-weight: 600 !important;
+    font-size: 0.78rem !important;
+    border-radius: 6px !important;
+}
+
+/* Typography */
+.MuiTypography-root {
+    color: var(--text-primary) !important;
+}
+
+.MuiTypography-colorTextSecondary {
+    color: var(--text-secondary) !important;
+}
+
+/* Alerts */
+.MuiAlert-root {
+    border-radius: var(--radius-sm) !important;
+    border: none !important;
+    font-size: 0.85rem !important;
+}
+
+.MuiAlert-standardError {
+    background: rgba(239, 68, 68, 0.08) !important;
+    color: #b91c1c !important;
+}
+
+.MuiAlert-standardWarning {
+    background: rgba(249, 115, 22, 0.08) !important;
+    color: #c2410c !important;
+}
+
+.MuiAlert-standardInfo {
+    background: rgba(0, 120, 212, 0.06) !important;
+    color: #0369a1 !important;
+}
+
+.MuiAlert-standardSuccess {
+    background: rgba(22, 163, 74, 0.08) !important;
+    color: #15803d !important;
+}
+
+/* Circular / Linear Progress */
+.MuiCircularProgress-root {
+    color: var(--barclays-blue) !important;
+}
+
+.MuiLinearProgress-root {
+    background-color: rgba(0, 0, 0, 0.06) !important;
+    border-radius: 4px !important;
+}
+
+/* Divider */
+.MuiDivider-root {
+    border-color: var(--border-color) !important;
+}
+
+/* CardHeader */
+.MuiCardHeader-root {
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 20px !important;
+}
+
+.MuiCardHeader-title {
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+}
+
+.MuiCardHeader-subheader {
+    color: var(--text-muted) !important;
+}
+
+/* Avatar */
+.MuiAvatar-root {
+    background: var(--gradient-primary) !important;
+}
+
+/* List */
+.MuiListItem-root {
+    color: var(--text-primary) !important;
+}
+
+.MuiListItemText-primary {
+    color: var(--text-primary) !important;
+    font-size: 0.88rem !important;
+}
+
+/* Menu */
+.MuiMenu-paper {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-accent) !important;
+}
+
+.MuiMenuItem-root:hover {
+    background: #f0f4f8 !important;
+}
+
+/* ========== CUSTOM CLASSES ========== */
+
+.page-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px 32px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.trend-up {
+    color: var(--accent-red) !important;
+}
+
+.trend-down {
+    color: var(--accent-green) !important;
+}
+
+.trend-stable {
+    color: var(--text-muted) !important;
+}
+
+/* Graph card */
+.graph-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.3s ease;
+}
+
+.graph-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.graph-card-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Chatbot styles */
+.chat-messages {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-accent) transparent;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: var(--border-accent);
+    border-radius: 3px;
+}
+
+.chat-bubble-user {
+    background: rgba(0, 174, 239, 0.08);
+    border: 1px solid rgba(0, 174, 239, 0.15);
+    border-radius: 12px 12px 4px 12px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    max-width: 85%;
+    margin-left: auto;
+    color: var(--text-primary);
+}
+
+.chat-bubble-bot {
+    background: #f0f4f8;
+    border: 1px solid var(--border-color);
+    border-radius: 12px 12px 12px 4px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    max-width: 85%;
+    color: var(--text-primary);
+}
+
+/* Recharts tooltip */
+.recharts-tooltip-wrapper {
+    outline: none !important;
+}
+
+.custom-tooltip {
+    background: #ffffff !important;
+    border: 1px solid var(--border-accent) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 10px 14px !important;
+    color: var(--text-primary) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+
+/* Scrollbar global */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-accent);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 16px;
+    }
+}
